@@ -43,11 +43,11 @@ let jpnCount = 0;
 
 // Funktion för att slumpa ett svärd från API:et
 async function randomSvärd() {
-  const ApiSvärdIds = await fetch("http://127.0.0.1:5500/api/sword/");
+  const ApiSvärdIds = await fetch("http://127.0.0.1:5501/pages/sword-game/api/sword/");
   const ids = await ApiSvärdIds.json();
   const randomId = ids[Math.floor(Math.random() * ids.length)];
   const svärdResponse = await fetch(
-    `http://127.0.0.1:5500/api/sword/${randomId}`
+    `http://127.0.0.1:5501/pages/sword-game/api/sword/${randomId}`
   );
   svärd = await svärdResponse.json();
   svärdbild.src = svärd.bild;
